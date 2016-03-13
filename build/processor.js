@@ -1,8 +1,4 @@
-'use strict';
-
 (function () {
-  'use strict';
-
   var async = require('async');
   var path = require('path');
   var fs = require('fs');
@@ -54,6 +50,7 @@
         }
 
         function createTask(obj) {
+          console.log(obj);
           var taskinfo = require(obj.file)(gulp, _.defaults(options.config, _.omit(options, ['config', 'plugins'])), options.plugins);
           var taskdeps = taskinfo.deps || [];
           var taskparams = taskinfo.params || [];

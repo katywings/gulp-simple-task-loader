@@ -1,8 +1,4 @@
-'use strict';
-
 (function () {
-  'use strict';
-
   var path = require('path');
 
   function removeDotSlash(relativePath) {

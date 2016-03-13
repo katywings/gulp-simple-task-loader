@@ -1,8 +1,6 @@
-'use strict';
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 (function () {
-  'use strict';
-
   var fs = require('fs');
 
   var taskDirectoryErrorString = 'Task directory must be a string containing the relative path to a task directory';
@@ -15,12 +13,12 @@
   function validateOption(option, type, required, errorString) {
     switch (type) {
       case 'string':
-        if (typeof option !== type || required && option.length === 0) {
+        if ((typeof option === 'undefined' ? 'undefined' : _typeof(option)) !== type || required && option.length === 0) {
           throw new Error(errorString);
         }
         break;
       case 'object':
-        if (!option || typeof option !== type) {
+        if (!option || (typeof option === 'undefined' ? 'undefined' : _typeof(option)) !== type) {
           throw new Error(errorString);
         }
         break;

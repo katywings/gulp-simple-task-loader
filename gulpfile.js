@@ -12,18 +12,18 @@
     del([ 'build/**' ], cb);
   });
 
-  gulp.task('build', [ 'clean' ], function() {
-  	return gulp.src('src/**/*.js')
+  gulp.task('build', function() {
+  	return gulp.src('./src/**/*.js')
       .pipe(babel())
       .pipe(gulp.dest('./build'));
   });
 
-  gulp.task('test', [ 'build' ], function() {
+  gulp.task('test', function() {
   	return gulp.src('./test/**/*.js', { read: false })
   		.pipe(mocha({ reporter: 'dot' }));
   });
 
-  gulp.task('coverage', [ 'build' ], function(cb) {
+  gulp.task('coverage', function(cb) {
   	gulp.src('build/**/*.js')
   		.pipe(istanbul())
   		.pipe(istanbul.hookRequire())
@@ -35,7 +35,7 @@
   		});
   });
 
-  gulp.task('bump', [ 'build', 'test' ], function() {
+  gulp.task('bump', function() {
     return gulp.src('./package.json')
       .pipe(bump())
       .pipe(gulp.dest('./'));

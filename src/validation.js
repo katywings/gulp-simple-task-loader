@@ -1,6 +1,4 @@
 (function() {
-  'use strict';
-
   var fs = require('fs');
 
   var taskDirectoryErrorString = 'Task directory must be a string containing the relative path to a task directory';
